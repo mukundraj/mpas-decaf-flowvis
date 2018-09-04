@@ -18,6 +18,9 @@ Flowvis
 - VTK (Tested with version 8.1)
 
 
+# Steps to build and run test case
+
+
 ## Clone repository and submodules (MPAS and Decaf )
 git clone https://github.com/mukundraj/mpas-decaf-flowvis.git
 cd mpas-decaf-flowvis
