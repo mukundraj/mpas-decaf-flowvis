@@ -5,3 +5,6 @@
 [submodule "decaf"]
 	path = decaf
 	url = https://github.com/mukundraj/decaf
+[submodule "diy"]
+	path = diy
+	url = https://github.com/diatomic/diy
