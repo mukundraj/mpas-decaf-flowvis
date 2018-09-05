@@ -50,7 +50,7 @@ make install
 
 cp $homedir/decaf/install/examples/mpas_vis/mod_mpas_adapter2.so $testdir
 
-cp $homedir/decaf/build/examples/mpas_vis/flow_main $testdir. 
+cp $homedir/decaf/build/examples/mpas_vis/flow_main $testdir   
 
 ## Build MPAS
 
@@ -58,14 +58,15 @@ cp $homedir/decaf/build/examples/mpas_vis/flow_main $testdir.
 
 cp $homedir/decaf/build/examples/mpas_vis/mod_mpas_adapter2.so  $homedir/MPAS-Model/src/
 
-export DECAF_FOLDER=$homedir/decaf  
-export BOOST_INSTALL_DIR=/path/to/boost/install/directory
+- Set environment variables
 
+export DECAF_FOLDER=$homedir/decaf  
+export BOOST_INSTALL_DIR=/path/to/boost/install/directory  
 export NETCDF=path/to/NETCDF/install/directory  
 export PNETCDF=path/to/PNETCDF/install/directory  
 export PIO=path/to/PIO/install/directory
 
-cd $homedir/MPAS-Model
+cd $homedir/MPAS-Model  
 make clean gfortran CORE=ocean
 
 - Copy MPAS executable to testdir  
