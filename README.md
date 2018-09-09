@@ -3,6 +3,7 @@
 ## Dependencies
 
 Decaf  
+
 - C++ 11  
 - MPI-3  
 - Boost 1.59 or higher  
@@ -10,12 +11,16 @@ Decaf
 - CMake 3.0 or higher  
 
 MPAS-O
+
 - NetCDF  
 - Parallel NetCDF  
 - PIO  
 
 Flowvis
-- VTK (Tested with version 8.1)
+
+- VTK (Tested with version 8.1)  
+- Eigen  
+- Libnabo (https://github.com/ethz-asl/libnabo)
 
 
 # Steps to build and run test case
@@ -42,21 +47,15 @@ homedir=path/to/mpas-decaf-flowvis/home/directory
 cd $homedir/decaf  
 mkdir build install  
 cd build  
-ccmake .. -DCMAKE_INSTALL_PREFIX:PATH=../install -Dtransport_cci=off  
+ccmake .. -DCMAKE_INSTALL_PREFIX:PATH=../install -Dtransport_cci=off -DVTK_DIR=/path/to/vtk/install -Dlibnabo_DIR=/path/to/libnabo/install
 make -j 8  
 make install  
 
-- Copy shared library and executable from mpas_vis directories to testdir 
-
-cp $homedir/decaf/install/examples/mpas_vis/mod_mpas_adapter2.so $testdir
+- Copy executable from mpas_vis directories to testdir 
 
 cp $homedir/decaf/build/examples/mpas_vis/flow_main $testdir   
 
 ## Build MPAS
-
-- Copy shared library from mpas_vis directory to MPAS source folder  
-
-cp $homedir/decaf/build/examples/mpas_vis/mod_mpas_adapter2.so  $homedir/MPAS-Model/src/
 
 - Set environment variables
 
@@ -76,7 +75,7 @@ cp $homedir/MPAS-Model/ocean_model $testdir
 ## Run test case
 
 cd $testdir  
-python3 generate_script.py  
+python generate_script.py  
 ./mpas\_decaf\_flowvis.sh
 
 
